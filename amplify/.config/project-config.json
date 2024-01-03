@@ -1,0 +1,17 @@
+{
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "voteapp",
+  "version": "3.1",
+  "frontend": "javascript",
+  "javascript": {
+    "framework": "vue",
+    "config": {
+      "SourceDir": "vote-app",
+      "DistributionDir": "vote-app/dist",
+      "BuildCommand": "npm run-script build",
+      "StartCommand": "npm run dev"
+    }
+  }
+}

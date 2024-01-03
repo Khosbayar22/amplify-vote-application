@@ -1,0 +1,13 @@
+{
+  "lambdaLayers": [],
+  "permissions": {
+    "storage": {
+      "Vote:@model(appsync)": [
+        "read"
+      ],
+      "Candidate:@model(appsync)": [
+        "read"
+      ]
+    }
+  }
+}

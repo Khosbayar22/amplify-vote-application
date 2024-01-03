@@ -1,0 +1,35 @@
+type Vote
+  @model(mutations: null, subscriptions: null)
+  @auth(rules: [{ allow: private }]) {
+  id: ID!
+  userId: ID!
+  postId: ID!
+  createdAt: AWSDateTime
+  vote: String!
+}
+
+type Voter
+  @model(mutations: null, subscriptions: null)
+  @auth(rules: [{ allow: private }]) {
+  id: ID!
+  email: String!
+  postId: ID!
+}
+
+type Query {
+  getDashboard(postId: String!): AWSJSON
+    @function(name: "getDashboard-${env}")
+    @auth(rules: [{ allow: private }])
+}
+
+type Mutation {
+  protectVote(userId: String!, postId: String!, vote: String!): AWSJSON
+    @function(name: "protectVote-${env}")
+    @auth(rules: [{ allow: private }])
+}
+
+# type Subscription {
+#   onCreateVote: AWSJSON
+#     @aws_subscribe(mutations: ["protectVote"])
+#     @auth(rules: [{ allow: private }])
+# }
